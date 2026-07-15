@@ -1,0 +1,879 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Akademikerhilfe Email Design System</title>
+
+  <style>
+    :root {
+      /* Brand tokens */
+      --brand-primary: #033655;
+      --brand-accent: #7dc097;
+
+      /* Surface tokens */
+      --surface-primary: #ffffff;
+      --surface-secondary: #eff3f5;
+
+      /* Text tokens */
+      --text-primary: #033655;
+      --text-secondary: #526c7a;
+      --text-inverse: #ffffff;
+      --text-muted: #7b8a94;
+
+      /* Border tokens */
+      --border-light: #d7e1e6;
+
+      /* Spacing tokens */
+      --space-xs: 8px;
+      --space-sm: 12px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+
+      /* Layout tokens */
+      --page-width: 1180px;
+      --email-width: 660px;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--surface-secondary);
+      color: var(--text-primary);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10pt;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--brand-primary);
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    .page-header {
+      background: var(--brand-primary);
+      color: var(--text-inverse);
+    }
+
+    .page-header__inner {
+      width: min(calc(100% - 40px), var(--page-width));
+      margin: 0 auto;
+      padding: 64px 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--brand-accent);
+      font-size: 9pt;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      max-width: 800px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.1;
+      font-weight: normal;
+    }
+
+    .page-subtitle {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: var(--surface-secondary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .accent-line {
+      width: 150px;
+      height: 2px;
+      margin-top: 28px;
+      background: var(--brand-accent);
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      color: var(--text-inverse);
+      font-size: 9pt;
+    }
+
+    .page-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--surface-primary);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .page-nav__inner {
+      display: flex;
+      gap: 24px;
+      width: min(calc(100% - 40px), var(--page-width));
+      margin: 0 auto;
+      padding: 14px 0;
+      overflow-x: auto;
+    }
+
+    .page-nav a {
+      flex: 0 0 auto;
+      color: var(--text-primary);
+      font-size: 9pt;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    main {
+      width: min(calc(100% - 40px), var(--page-width));
+      margin: 0 auto;
+      padding: 56px 0 80px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+
+    .overview-card {
+      padding: 28px;
+      background: var(--surface-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+    }
+
+    .overview-card h2 {
+      margin: 0 0 16px;
+      font-size: 16pt;
+    }
+
+    .overview-card p {
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    .status-list {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .status-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .status-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .status {
+      color: var(--brand-accent);
+      font-weight: bold;
+    }
+
+    .showcase-section {
+      margin-top: 72px;
+      scroll-margin-top: 80px;
+    }
+
+    .showcase-heading {
+      margin-bottom: 24px;
+    }
+
+    .showcase-heading__label {
+      margin: 0 0 6px;
+      color: var(--brand-accent);
+      font-size: 9pt;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .showcase-heading h2 {
+      margin: 0;
+      font-size: 22pt;
+    }
+
+    .showcase-heading p {
+      max-width: 700px;
+      margin: 10px 0 0;
+      color: var(--text-secondary);
+    }
+
+    .preview-shell {
+      padding: 40px 20px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent 24px,
+          rgba(3, 54, 85, 0.04) 25px,
+          transparent 26px
+        ),
+        var(--surface-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      overflow-x: auto;
+    }
+
+    .email-preview {
+      width: 660px;
+      max-width: 100%;
+      margin: 0 auto;
+      background: var(--surface-primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .email-padding {
+      padding: 48px 44px;
+    }
+
+    .component-note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--surface-primary);
+      border-left: 4px solid var(--brand-accent);
+      color: var(--text-secondary);
+      font-size: 9pt;
+    }
+
+    /* Hero preview */
+
+    .ah-hero {
+      padding: 48px 44px;
+      background: var(--brand-primary);
+      text-align: left;
+    }
+
+    .ah-hero__department {
+      margin: 0 0 12px;
+      color: var(--brand-accent);
+      font-size: 10pt;
+      line-height: 15pt;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .ah-hero__title {
+      margin: 0;
+      color: var(--text-inverse);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30pt;
+      line-height: 36pt;
+      font-weight: normal;
+    }
+
+    .ah-hero__support {
+      margin: 24px 0 0;
+      color: var(--surface-secondary);
+      font-size: 10pt;
+      line-height: 16pt;
+    }
+
+    /* Section preview */
+
+    .ah-section-heading {
+      margin: 0;
+      font-size: 16pt;
+      line-height: 20pt;
+    }
+
+    .ah-body {
+      margin: 16px 0 0;
+      font-size: 10pt;
+      line-height: 16pt;
+    }
+
+    /* Buttons */
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .ah-button {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: var(--radius);
+      font-size: 10pt;
+      line-height: 14pt;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .ah-button--primary {
+      background: var(--brand-primary);
+      border: 1px solid var(--brand-primary);
+      color: var(--text-inverse);
+    }
+
+    .ah-button--secondary {
+      background: var(--surface-primary);
+      border: 2px solid var(--brand-primary);
+      color: var(--brand-primary);
+    }
+
+    /* Cards */
+
+    .ah-info-card {
+      padding: 24px 28px;
+      background: var(--surface-secondary);
+      border-left: 4px solid var(--brand-accent);
+      border-radius: var(--radius);
+    }
+
+    .ah-feature-panel {
+      padding: 28px 30px;
+      background: var(--brand-primary);
+      border-radius: var(--radius);
+      color: var(--surface-secondary);
+    }
+
+    .ah-card-title {
+      margin: 0 0 12px;
+      font-size: 11pt;
+      line-height: 16pt;
+      font-weight: bold;
+    }
+
+    .ah-feature-panel .ah-card-title {
+      color: var(--text-inverse);
+      font-size: 12pt;
+    }
+
+    .ah-feature-panel p {
+      color: var(--surface-secondary);
+    }
+
+    .ah-feature-panel .highlight {
+      color: var(--brand-accent);
+      font-weight: bold;
+    }
+
+    /* Table */
+
+    .ah-data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      background: var(--surface-primary);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+    }
+
+    .ah-data-table th,
+    .ah-data-table td {
+      padding: 14px 16px;
+      font-size: 10pt;
+      line-height: 16pt;
+    }
+
+    .ah-data-table th {
+      background: var(--brand-primary);
+      color: var(--text-inverse);
+      text-align: left;
+    }
+
+    .ah-data-table td {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .ah-data-table tbody tr:nth-child(even) td {
+      background: var(--surface-secondary);
+    }
+
+    .ah-data-table .amount {
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    .ah-data-table tfoot td {
+      background: var(--brand-accent);
+      border-bottom: 0;
+      font-weight: bold;
+    }
+
+    /* Signature */
+
+    .ah-signature {
+      color: var(--text-primary);
+      font-size: 10pt;
+      line-height: 16pt;
+    }
+
+    .ah-signature p {
+      margin: 0 0 14px;
+    }
+
+    .ah-signature__department {
+      margin-bottom: 20px !important;
+      font-size: 12pt;
+      font-weight: bold;
+    }
+
+    .ah-signature a {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .ah-signature__legal {
+      font-size: 9pt;
+      line-height: 14pt;
+      color: var(--text-secondary);
+    }
+
+    /* Technical footer */
+
+    .ah-technical-footer {
+      padding: 24px 44px;
+      border-top: 1px solid var(--border-light);
+      color: var(--text-muted);
+      font-size: 9pt;
+      line-height: 12pt;
+      text-align: center;
+    }
+
+    .page-footer {
+      padding: 32px 20px;
+      background: var(--brand-primary);
+      color: var(--surface-secondary);
+      text-align: center;
+      font-size: 9pt;
+    }
+
+    @media (max-width: 720px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page-header__inner {
+        padding: 44px 0;
+      }
+
+      main {
+        padding-top: 40px;
+      }
+
+      .preview-shell {
+        padding: 20px 8px;
+      }
+
+      .ah-hero,
+      .email-padding,
+      .ah-technical-footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .ah-hero__title {
+        font-size: 24pt;
+        line-height: 29pt;
+      }
+
+      .button-row {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .ah-button {
+        width: 100%;
+      }
+
+      .table-scroll {
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div class="page-header__inner">
+      <p class="eyebrow">Akademikerhilfe</p>
+
+      <h1 class="page-title">
+        Email Design System
+      </h1>
+
+      <p class="page-subtitle">
+        Designed for Every Student Journey.
+        A living reference for reusable, accessible and
+        Outlook-compatible transactional email components.
+      </p>
+
+      <div class="accent-line"></div>
+
+      <div class="project-meta">
+        <span class="badge">Version 0.2.0</span>
+        <span class="badge">Status: In development</span>
+        <span class="badge">Transactional email</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="page-nav" aria-label="Component navigation">
+    <div class="page-nav__inner">
+      <a href="#hero">Hero</a>
+      <a href="#section">Section</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#info-card">Info Card</a>
+      <a href="#feature-panel">Feature Panel</a>
+      <a href="#data-table">Data Table</a>
+      <a href="#signature">Signature</a>
+      <a href="#footer">Footer</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="intro-grid">
+      <article class="overview-card">
+        <h2>About this showcase</h2>
+
+        <p>
+          This page presents the current component library using live HTML.
+          Production email components remain stored separately in
+          <code>src/components/</code>.
+        </p>
+      </article>
+
+      <article class="overview-card">
+        <h2>Component status</h2>
+
+        <ul class="status-list">
+          <li><span>Hero</span><span class="status">Available</span></li>
+          <li><span>Section</span><span class="status">Available</span></li>
+          <li><span>Button</span><span class="status">Available</span></li>
+          <li><span>Info Card</span><span class="status">Available</span></li>
+          <li><span>Feature Panel</span><span class="status">Available</span></li>
+          <li><span>Data Table</span><span class="status">Available</span></li>
+          <li><span>Signature</span><span class="status">Draft</span></li>
+          <li><span>Technical Footer</span><span class="status">Draft</span></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- =====================================================
+         Hero
+    ====================================================== -->
+
+    <section id="hero" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 01</p>
+        <h2>AH Hero</h2>
+        <p>
+          Introduces the primary purpose of an email and establishes
+          immediate Akademikerhilfe brand recognition.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="ah-hero">
+            <p class="ah-hero__department">Department label</p>
+
+            <h3 class="ah-hero__title">Email title</h3>
+
+            <div class="accent-line"></div>
+
+            <p class="ah-hero__support">
+              Optional supporting information appears here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Section
+    ====================================================== -->
+
+    <section id="section" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 02</p>
+        <h2>AH Section</h2>
+        <p>
+          Groups related content into a clearly structured topic.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="email-padding">
+            <h3 class="ah-section-heading">Section heading</h3>
+
+            <p class="ah-body">
+              A short introduction explains the purpose of this section.
+            </p>
+
+            <p class="ah-body">
+              Additional content appears here. Each section should remain
+              focused on one topic.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Buttons
+    ====================================================== -->
+
+    <section id="buttons" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 03</p>
+        <h2>AH Buttons</h2>
+        <p>
+          Primary and secondary actions used throughout transactional emails.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="email-padding">
+            <div class="button-row">
+              <a class="ah-button ah-button--primary" href="#">
+                Primary action
+              </a>
+
+              <a class="ah-button ah-button--secondary" href="#">
+                Secondary action
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Info Card
+    ====================================================== -->
+
+    <section id="info-card" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 04</p>
+        <h2>AH Info Card</h2>
+        <p>
+          Used for calm, supporting information that should remain visible
+          without competing with the primary message.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="email-padding">
+            <div class="ah-info-card">
+              <p class="ah-card-title">Information heading</p>
+
+              <p class="ah-body">
+                Supporting information appears here. Explain why this
+                information is relevant to the recipient.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Feature Panel
+    ====================================================== -->
+
+    <section id="feature-panel" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 05</p>
+        <h2>AH Feature Panel</h2>
+        <p>
+          A high-emphasis component for important details and critical
+          next steps.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="email-padding">
+            <div class="ah-feature-panel">
+              <p class="ah-card-title">Feature panel heading</p>
+
+              <p class="ah-body">
+                Important information appears here. Keep the content concise.
+              </p>
+
+              <p class="ah-body highlight">
+                Highlighted information appears here.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Data Table
+    ====================================================== -->
+
+    <section id="data-table" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 06</p>
+        <h2>AH Data Table</h2>
+        <p>
+          Presents structured information such as payments, debts,
+          contract details or account information.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="email-padding">
+            <div class="table-scroll">
+              <table class="ah-data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Column heading</th>
+                    <th scope="col">Column heading</th>
+                    <th scope="col" class="amount">Amount</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Example value</td>
+                    <td>Example value</td>
+                    <td class="amount">EUR 100,00</td>
+                  </tr>
+
+                  <tr>
+                    <td>Example value</td>
+                    <td>Example value</td>
+                    <td class="amount">EUR 100,00</td>
+                  </tr>
+                </tbody>
+
+                <tfoot>
+                  <tr>
+                    <td colspan="2">Total</td>
+                    <td class="amount">EUR 200,00</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Signature
+    ====================================================== -->
+
+    <section id="signature" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 07</p>
+        <h2>AH Corporate Signature</h2>
+        <p>
+          Identifies the responsible department and contains the official
+          organisation and contact details.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="email-padding">
+            <div class="ah-signature">
+              <p class="ah-signature__department">Department name</p>
+
+              <p>
+                Akademikerhilfe | Pfeilgasse 3a, A-1080 Wien<br>
+                <a href="tel:+43140176">+43 1 40176</a> |
+                <a href="mailto:department@akademikerhilfe.at">
+                  department@akademikerhilfe.at
+                </a><br>
+                <a href="https://www.akademikerhilfe.at">
+                  www.akademikerhilfe.at
+                </a>
+              </p>
+
+              <p class="ah-signature__legal">
+                ZVR: 431442523 | ATU38108506
+              </p>
+
+              <p class="ah-signature__legal">
+                Bevollmächtigte für die<br>
+                Gemeinnützige Bau- und Wohnungsgenossenschaft<br>
+                der Hochschüler in Leoben reg. Gen.m.b.H.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         Footer
+    ====================================================== -->
+
+    <section id="footer" class="showcase-section">
+      <div class="showcase-heading">
+        <p class="showcase-heading__label">Component 08</p>
+        <h2>AH Technical Footer</h2>
+        <p>
+          Provides unobtrusive internal reference information at the end
+          of every email.
+        </p>
+      </div>
+
+      <div class="preview-shell">
+        <div class="email-preview">
+          <div class="ah-technical-footer">
+            Object Code: {OBJECT_CODE} | Person ID: {PERSON_ID}
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    Akademikerhilfe Email Design System —
+    Designed for Every Student Journey.
+  </footer>
+
+</body>
+</html>
