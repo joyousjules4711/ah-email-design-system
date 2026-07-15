@@ -86,6 +86,8 @@
 
       .mobile-button,
       .mobile-button table,
+      .mobile-button tbody,
+      .mobile-button tr,
       .mobile-button td,
       .mobile-button a {
         width: 100% !important;
@@ -264,18 +266,9 @@
 
               <!-- Metadata -->
 
-              <p
-                style="
-                  margin:0 0 24px 0;
-                  padding:0;
-                  font-family:Arial,sans-serif;
-                  font-size:9pt;
-                  line-height:14pt;
-                  color:#506b7a;
-                "
-              >
-                AH-Code: <strong style="color:#033655;">{OBJECT_CODE}</strong>
-              </p>
+                  <!-- entfernt (Object Code im Footer) -->
+
+              <!-- Greeting -->
 
               <p
                 style="
@@ -289,6 +282,8 @@
               >
                 {ANREDE},
               </p>
+
+              <!-- Introduction -->
 
               <p
                 style="
@@ -322,7 +317,7 @@
               </p>
 
               <!-- ==================================================
-                   AH Info Card — Acceptance Deadline
+                   AH Info Card – Acceptance
               =================================================== -->
 
               <table
@@ -398,7 +393,7 @@
                             style="
                               height:44px;
                               v-text-anchor:middle;
-                              width:300px;
+                              width:310px;
                             "
                             arcsize="18%"
                             strokecolor="#033655"
@@ -479,8 +474,7 @@
                 </tr>
               </table>
 
-              <!-- Existing source-system content.
-                   Verify this placeholder against the source configuration. -->
+              <!-- Additional source-system content -->
 
               <div
                 style="
@@ -495,7 +489,7 @@
               </div>
 
               <!-- ==================================================
-                   AH Section — Offer Information
+                   AH Section – Offer Information
               =================================================== -->
 
               <table
@@ -564,7 +558,7 @@
               </table>
 
               <!-- ==================================================
-                   AH Section — Waiting List
+                   AH Section – Waiting List
               =================================================== -->
 
               <table
@@ -643,7 +637,7 @@
               </table>
 
               <!-- ==================================================
-                   AH Section — Data Protection
+                   AH Section – Data Protection
               =================================================== -->
 
               <h2
@@ -673,7 +667,7 @@
                 Der Schutz Ihrer persönlichen Daten ist uns wichtig.
                 Unsere Datenschutzerklärung finden Sie
                 <a
-                  href="{DATENSCHUTZ_LINK}"
+                  href="https://www.akademikerhilfe.at/datenschutz"
                   target="_blank"
                   style="
                     color:#033655;
@@ -684,6 +678,8 @@
                   hier
                 </a>.
               </p>
+
+              <!-- Closing -->
 
               <p
                 style="
@@ -733,7 +729,7 @@
               "
             >
 
-              <!-- Akademikerhilfe logo will be inserted here later. -->
+              <!-- Team -->
 
               <p
                 style="
@@ -749,9 +745,31 @@
                 Team Studentservice
               </p>
 
+              <!-- Logo -->
+
+              <img
+                src="../../../../assets/logos/AH_Logo_2026_WEB-RGB.png"
+                width="250"
+                alt="Akademikerhilfe"
+                style="
+                  display:block;
+                  width:250px;
+                  max-width:100%;
+                  height:auto;
+                  margin:0 0 24px 0;
+                  padding:0;
+                  border:0;
+                  outline:none;
+                  text-decoration:none;
+                  -ms-interpolation-mode:bicubic;
+                "
+              >
+
+              <!-- Organisation -->
+
               <p
                 style="
-                  margin:0 0 14px 0;
+                  margin:0;
                   padding:0;
                   font-family:Arial,sans-serif;
                   font-size:10pt;
@@ -759,12 +777,14 @@
                   color:#033655;
                 "
               >
-                Akademikerhilfe | Pfeilgasse 3a, A-1080 Wien
+                Akademikerhilfe | Pfeilgasse 3a, A - 1080 Wien
               </p>
+
+              <!-- Contact -->
 
               <p
                 style="
-                  margin:0 0 14px 0;
+                  margin:0;
                   padding:0;
                   font-family:Arial,sans-serif;
                   font-size:10pt;
@@ -774,22 +794,30 @@
               >
                 <a
                   href="tel:+43140176"
-                  style="color:#033655; text-decoration:none;"
+                  style="
+                    color:#033655;
+                    text-decoration:none;
+                  "
                 >
                   +43 1 40176
                 </a>
                 &nbsp;|&nbsp;
                 <a
                   href="mailto:studentservice@akademikerhilfe.at"
-                  style="color:#033655; text-decoration:none;"
+                  style="
+                    color:#033655;
+                    text-decoration:underline;
+                  "
                 >
                   studentservice@akademikerhilfe.at
                 </a>
               </p>
 
+              <!-- Website -->
+
               <p
                 style="
-                  margin:0 0 18px 0;
+                  margin:0 0 12px 0;
                   padding:0;
                   font-family:Arial,sans-serif;
                   font-size:10pt;
@@ -800,11 +828,16 @@
                 <a
                   href="https://www.akademikerhilfe.at/"
                   target="_blank"
-                  style="color:#033655; text-decoration:none;"
+                  style="
+                    color:#033655;
+                    text-decoration:underline;
+                  "
                 >
-                  www.akademikerhilfe.at
+                  https://www.akademikerhilfe.at
                 </a>
               </p>
+
+              <!-- Legal -->
 
               <p
                 style="
@@ -821,7 +854,7 @@
 
               <p
                 style="
-                  margin:14px 0 0 0;
+                  margin:16px 0 0 0;
                   padding:0;
                   font-family:Arial,sans-serif;
                   font-size:9pt;
