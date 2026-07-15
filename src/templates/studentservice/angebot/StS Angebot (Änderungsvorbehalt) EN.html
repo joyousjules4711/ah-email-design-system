@@ -1,32 +1,28 @@
 <!--
 ==============================================================
-Template Information
+Template
 
 Name:
-StS Vertragsangebot DE
+StS Angebot (Änderungsvorbehalt) EN
 
 Department:
 Studentservice
 
-Status:
-Production
+Language:
+English
 
-Primary CTA:
-Angebot im Online-Portal annehmen
+Purpose:
+Provides a housing offer subject to change and enables the
+recipient to accept it within the specified deadline.
 
-Primary Placeholders:
-{ANREDE}
-{HEIM_ADRESSE}
-{AUFENTHALT_DATUM_VERTRAGSBEGINN}
-{ZUSAGE_FRIST}
-{ACCEPTANCE_LINK}
-
+Design System:
+AH Email Design System 2026
 ==============================================================
 -->
 
 <!doctype html>
 <html
-  lang="de"
+  lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:v="urn:schemas-microsoft-com:vml"
   xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -38,7 +34,7 @@ Primary Placeholders:
   <meta name="color-scheme" content="light">
   <meta name="supported-color-schemes" content="light">
 
-  <title>Ihr Platz bei der Akademikerhilfe</title>
+  <title>Your place at Akademikerhilfe</title>
 
   <!--[if mso]>
   <noscript>
@@ -141,7 +137,7 @@ Primary Placeholders:
       font-size:1px;
     "
   >
-    Bitte nehmen Sie Ihr Wohnplatzangebot bis {ZUSAGE_FRIST} im Online-Portal an.
+    Please accept your personal housing offer by {ZUSAGE_FRIST}.
   </div>
 
   <table
@@ -229,7 +225,7 @@ Primary Placeholders:
                   color:#ffffff;
                 "
               >
-                Ihr Platz bei der Akademikerhilfe
+                Your place at Akademikerhilfe
               </h1>
 
               <table
@@ -267,8 +263,8 @@ Primary Placeholders:
                   color:#eff3f5;
                 "
               >
-                Bitte prüfen und bestätigen Sie Ihr persönliches Angebot
-                innerhalb der angegebenen Frist.
+                Please review and confirm your personal offer within the
+                specified deadline.
               </p>
             </td>
           </tr>
@@ -290,10 +286,6 @@ Primary Placeholders:
               "
             >
 
-              <!-- Metadata -->
-
-                  <!-- entfernt (Object Code im Footer) -->
-
               <!-- Greeting -->
 
               <p
@@ -306,7 +298,7 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                {ANREDE},
+                {ANREDE_ENGL},
               </p>
 
               <!-- Introduction -->
@@ -321,11 +313,10 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                wir freuen uns, Ihnen einen Heimplatz in
-                <strong>{HEIM_ADRESSE}</strong>
-                ab
-                <strong>{AUFENTHALT_DATUM_VERTRAGSBEGINN}</strong>
-                anbieten zu können.
+                We are pleased to offer you a residence place at
+                <strong>{HOSTEL_ADDRESS}</strong>
+                starting on
+                <strong>{AUFENTHALT_DATUM_VERTRAGSBEGINN}</strong>.
               </p>
 
               <p
@@ -338,8 +329,9 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                Im Anhang finden Sie Ihr persönliches Angebot inklusive aller
-                wichtigen Unterlagen und Informationen zur Angebotsannahme.
+                The attached documents contain your personal offer and all
+                relevant enclosures. Please follow the instructions on the
+                first page to accept the offer.
               </p>
 
               <!-- ==================================================
@@ -379,7 +371,7 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Angebot annehmen
+                      Accept your offer
                     </p>
 
                     <p
@@ -392,10 +384,9 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Wenn Sie unser Angebot annehmen möchten, bestätigen Sie
-                      dieses bitte bis spätestens
-                      <strong>{ZUSAGE_FRIST}</strong>
-                      über Ihren persönlichen Link zum Online-Portal.
+                      To accept the Housing Contract and reserve your room,
+                      please enter your bank account details online by
+                      <strong>{ZUSAGE_FRIST}</strong>.
                     </p>
 
                     <!-- Primary Button -->
@@ -419,7 +410,7 @@ Primary Placeholders:
                             style="
                               height:44px;
                               v-text-anchor:middle;
-                              width:310px;
+                              width:280px;
                             "
                             arcsize="18%"
                             strokecolor="#033655"
@@ -434,7 +425,7 @@ Primary Placeholders:
                                 color:#ffffff;
                               "
                             >
-                              Angebot im Online-Portal annehmen
+                              Accept offer in the Online Portal
                             </center>
                           </v:roundrect>
                           <![endif]-->
@@ -472,7 +463,7 @@ Primary Placeholders:
                                     border-radius:8px;
                                   "
                                 >
-                                  Angebot im Online-Portal annehmen
+                                  Accept offer in the Online Portal
                                 </a>
                               </td>
                             </tr>
@@ -494,7 +485,7 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Ihr Angebot ist bis {ZUSAGE_FRIST} für Sie reserviert.
+                      Your offer is reserved for you until {ZUSAGE_FRIST}.
                     </p>
                   </td>
                 </tr>
@@ -515,7 +506,7 @@ Primary Placeholders:
               </div>
 
               <!-- ==================================================
-                   AH Section – Offer Information
+                   AH Section – Alternative Offer
               =================================================== -->
 
               <table
@@ -548,7 +539,7 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Hinweis zu Ihrem Angebot
+                      About your offer
                     </h2>
 
                     <p
@@ -561,9 +552,9 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Sollte unser Angebot nicht vollständig Ihren Wünschen
-                      aus dem Anmeldeformular entsprechen, sind die gewünschten
-                      Kategorien oder Studentenheime leider bereits ausgebucht.
+                      If the offer does not match the preferences stated in
+                      your application, the requested categories or residences
+                      are unfortunately already fully booked.
                     </p>
 
                     <p
@@ -576,8 +567,8 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Wir hoffen dennoch, dass unser Alternativangebot für Sie
-                      passend ist.
+                      We hope that our alternative offer is still suitable
+                      for you.
                     </p>
                   </td>
                 </tr>
@@ -617,7 +608,7 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Warteliste
+                      Waiting list
                     </h2>
 
                     <p
@@ -630,8 +621,9 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Falls Sie dieses Angebot nicht annehmen möchten, führen
-                      wir Sie gerne weiterhin auf unserer Warteliste.
+                      If our offer does not meet your expectations, we will be
+                      happy to keep you on the waiting list for a different
+                      residence place.
                     </p>
 
                     <p
@@ -644,7 +636,7 @@ Primary Placeholders:
                         color:#033655;
                       "
                     >
-                      Senden Sie uns dazu bitte eine E-Mail an
+                      Please email
                       <a
                         href="mailto:studentservice@akademikerhilfe.at"
                         style="
@@ -655,8 +647,8 @@ Primary Placeholders:
                       >
                         studentservice@akademikerhilfe.at
                       </a>
-                      und teilen Sie uns mit, für welches Studentenheim und
-                      welche Zimmerkategorie Sie sich interessieren.
+                      and let us know which student residence and room type
+                      you are interested in.
                     </p>
                   </td>
                 </tr>
@@ -677,7 +669,7 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                Datenschutz
+                Data protection
               </h2>
 
               <p
@@ -690,8 +682,8 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                Der Schutz Ihrer persönlichen Daten ist uns wichtig.
-                Unsere Datenschutzerklärung finden Sie
+                Protecting your personal data is important to us.
+                Please read our
                 <a
                   href="https://www.akademikerhilfe.at/datenschutz"
                   target="_blank"
@@ -701,24 +693,11 @@ Primary Placeholders:
                     text-decoration:underline;
                   "
                 >
-                  hier
+                  Data Protection Statement
                 </a>.
               </p>
 
               <!-- Closing -->
-
-              <p
-                style="
-                  margin:0 0 16px 0;
-                  padding:0;
-                  font-family:Arial,sans-serif;
-                  font-size:10pt;
-                  line-height:16pt;
-                  color:#033655;
-                "
-              >
-                Haben Sie Fragen? Wir helfen Ihnen gerne weiter.
-              </p>
 
               <p
                 style="
@@ -730,7 +709,8 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                Wir freuen uns auf Ihre Rückmeldung.
+                Please do not hesitate to contact us if you need any further
+                information.
               </p>
 
             </td>
@@ -768,13 +748,13 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-              Studentservice
+                Team Studentservice
               </p>
 
               <!-- Logo -->
 
               <img
-                src="../../../../assets/logos/AH_Logo_2026_WEB-RGB.png"
+                src="../../../assets/logos/AH_Logo_2026_WEB-RGB.png"
                 width="250"
                 alt="Akademikerhilfe"
                 style="
@@ -803,7 +783,7 @@ Primary Placeholders:
                   color:#033655;
                 "
               >
-                Akademikerhilfe | Pfeilgasse 3a, A - 1080 Wien
+                Akademikerhilfe | Pfeilgasse 3a, A - 1080 Vienna
               </p>
 
               <!-- Contact -->
@@ -820,20 +800,14 @@ Primary Placeholders:
               >
                 <a
                   href="tel:+43140176"
-                  style="
-                    color:#033655;
-                    text-decoration:none;
-                  "
+                  style="color:#033655; text-decoration:none;"
                 >
                   +43 1 40176
                 </a>
                 &nbsp;|&nbsp;
                 <a
                   href="mailto:studentservice@akademikerhilfe.at"
-                  style="
-                    color:#033655;
-                    text-decoration:underline;
-                  "
+                  style="color:#033655; text-decoration:underline;"
                 >
                   studentservice@akademikerhilfe.at
                 </a>
@@ -854,10 +828,7 @@ Primary Placeholders:
                 <a
                   href="https://www.akademikerhilfe.at/"
                   target="_blank"
-                  style="
-                    color:#033655;
-                    text-decoration:underline;
-                  "
+                  style="color:#033655; text-decoration:underline;"
                 >
                   https://www.akademikerhilfe.at
                 </a>
@@ -888,7 +859,7 @@ Primary Placeholders:
                   color:#506b7a;
                 "
               >
-                Bevollmächtigte für die<br>
+                Authorised representative of<br>
                 Gemeinnützige Bau- und Wohnungsgenossenschaft<br>
                 der Hochschüler in Leoben reg. Gen.m.b.H.
               </p>
