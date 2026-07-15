@@ -1,0 +1,899 @@
+<!--
+==============================================================
+Template
+
+Name:
+StS Auslandsaufenthalt Bestätigung EN
+
+Department:
+Studentservice
+
+Language:
+English
+
+Purpose:
+Confirms a planned stay abroad, reserves a residence place
+for the recipient's return and explains departure, evidence,
+cancellation and registration requirements.
+
+Placeholders:
+- {BENUTZER_VORNAME}
+- {BENUTZER_NACHNAME}
+- {OBJECT_CODE}
+- {PERSON_ID}
+
+Design System:
+AH Email Design System 2026
+==============================================================
+-->
+
+<!doctype html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <title>Your Stay Abroad Has Been Confirmed</title>
+
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+
+  <style>
+    body,
+    table,
+    td,
+    p,
+    a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table,
+    td {
+      mso-table-lspace: 0;
+      mso-table-rspace: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    img {
+      display: block;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    body {
+      width: 100% !important;
+      min-width: 100%;
+      margin: 0 !important;
+      padding: 0 !important;
+      background-color: #eff3f5;
+    }
+
+    a {
+      color: #033655;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .outer-padding {
+        padding:16px 8px !important;
+      }
+
+      .email-container {
+        width:100% !important;
+        max-width:100% !important;
+      }
+
+      .mobile-padding {
+        padding-left:24px !important;
+        padding-right:24px !important;
+      }
+
+      .hero-title {
+        font-size:24pt !important;
+        line-height:29pt !important;
+      }
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0; background-color:#eff3f5;">
+
+  <!-- Preheader -->
+  <div
+    style="
+      display:none;
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      color:transparent;
+      line-height:1px;
+      font-size:1px;
+    "
+  >
+    Your planned stay abroad and your reserved residence place have been confirmed.
+  </div>
+
+  <table
+    role="presentation"
+    width="100%"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    style="width:100%; background-color:#eff3f5;"
+  >
+    <tr>
+      <td
+        class="outer-padding"
+        align="center"
+        style="padding:40px 20px;"
+      >
+
+        <!--[if mso]>
+        <table
+          role="presentation"
+          width="660"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+        >
+          <tr>
+            <td>
+        <![endif]-->
+
+        <table
+          class="email-container"
+          role="presentation"
+          width="660"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+          style="
+            width:660px;
+            max-width:660px;
+            background-color:#ffffff;
+            border:1px solid #d7e1e6;
+          "
+        >
+
+          <!-- ==================================================
+               Hero
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              bgcolor="#033655"
+              style="
+                padding:48px 44px;
+                background-color:#033655;
+                text-align:left;
+              "
+            >
+              <p
+                style="
+                  margin:0 0 12px 0;
+                  padding:0;
+                  font-family:Arial,Helvetica,sans-serif;
+                  font-size:10pt;
+                  line-height:15pt;
+                  font-weight:bold;
+                  letter-spacing:1.5px;
+                  text-transform:uppercase;
+                  color:#7dc097;
+                "
+              >
+                Akademikerhilfe Studentservice
+              </p>
+
+              <h1
+                class="hero-title"
+                style="
+                  margin:0;
+                  padding:0;
+                  font-family:Georgia,'Times New Roman',serif;
+                  font-size:30pt;
+                  line-height:36pt;
+                  font-weight:normal;
+                  color:#ffffff;
+                "
+              >
+                Your stay abroad has been confirmed
+              </h1>
+
+              <table
+                role="presentation"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+                style="margin-top:24px;"
+              >
+                <tr>
+                  <td
+                    width="150"
+                    height="2"
+                    bgcolor="#7dc097"
+                    style="
+                      width:150px;
+                      height:2px;
+                      background-color:#7dc097;
+                      font-size:0;
+                      line-height:0;
+                    "
+                  >
+                    &nbsp;
+                  </td>
+                </tr>
+              </table>
+
+              <p
+                style="
+                  margin:24px 0 0 0;
+                  padding:0;
+                  font-family:Arial,Helvetica,sans-serif;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#eff3f5;
+                "
+              >
+                A residence place will be reserved for your return.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Confirmation
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:40px 44px 28px 44px;
+                background-color:#ffffff;
+                font-family:Arial,Helvetica,sans-serif;
+                color:#033655;
+                text-align:left;
+              "
+            >
+              <p
+                style="
+                  margin:0 0 16px 0;
+                  padding:0;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                We have received your message regarding your planned stay
+                abroad.
+              </p>
+
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                We confirm that Akademikerhilfe will provide you with a
+                residence place again from
+                <strong>1 February 2026</strong>.
+                This residence place will be reserved for you in advance.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Departure Card
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:0 44px 32px 44px;
+                background-color:#ffffff;
+              "
+            >
+              <table
+                role="presentation"
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+                style="width:100%; border-collapse:separate;"
+              >
+                <tr>
+                  <td
+                    bgcolor="#eff3f5"
+                    style="
+                      padding:24px 28px;
+                      background-color:#eff3f5;
+                      border-left:4px solid #7dc097;
+                      border-radius:8px;
+                    "
+                  >
+                    <h2
+                      style="
+                        margin:0 0 14px 0;
+                        padding:0;
+                        font-family:Georgia,'Times New Roman',serif;
+                        font-size:17pt;
+                        line-height:22pt;
+                        font-weight:normal;
+                        color:#033655;
+                      "
+                    >
+                      Your move-out date
+                    </h2>
+
+                    <p
+                      style="
+                        margin:0;
+                        padding:0;
+                        font-family:Arial,Helvetica,sans-serif;
+                        font-size:10pt;
+                        line-height:16pt;
+                        color:#033655;
+                      "
+                    >
+                      You must move out of the residence by the
+                      <strong>last working day of September 2025</strong>
+                      and no later than <strong>10:00 a.m.</strong>
+                      Working days are Monday to Friday.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Proof
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:0 44px 36px 44px;
+                background-color:#ffffff;
+              "
+            >
+              <h2
+                style="
+                  margin:0 0 16px 0;
+                  padding:0;
+                  font-family:Georgia,'Times New Roman',serif;
+                  font-size:20pt;
+                  line-height:25pt;
+                  font-weight:normal;
+                  color:#033655;
+                "
+              >
+                Confirmation of your stay abroad
+              </h2>
+
+              <p
+                style="
+                  margin:0 0 16px 0;
+                  padding:0;
+                  font-family:Arial,Helvetica,sans-serif;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                If you have not yet sent us official confirmation showing the
+                exact period of your stay abroad, please submit it no later
+                than <strong>six weeks before you move back in</strong>.
+              </p>
+
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-family:Arial,Helvetica,sans-serif;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                We can only suspend the residence fee for the period during
+                which you can provide evidence that you are studying abroad.
+                If the confirmed period differs from the period stated, the
+                relevant monthly fees will be charged retrospectively.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Cancellation
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:0 44px 36px 44px;
+                background-color:#ffffff;
+              "
+            >
+              <h2
+                style="
+                  margin:0 0 16px 0;
+                  padding:0;
+                  font-family:Georgia,'Times New Roman',serif;
+                  font-size:20pt;
+                  line-height:25pt;
+                  font-weight:normal;
+                  color:#033655;
+                "
+              >
+                Cancelling your reserved residence place
+              </h2>
+
+              <table
+                role="presentation"
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+              >
+                <tr>
+                  <td
+                    valign="top"
+                    width="20"
+                    style="
+                      width:20px;
+                      padding:0 8px 12px 0;
+                      font-family:Arial,Helvetica,sans-serif;
+                      font-size:10pt;
+                      line-height:16pt;
+                      font-weight:bold;
+                      color:#7dc097;
+                    "
+                  >
+                    •
+                  </td>
+
+                  <td
+                    valign="top"
+                    style="
+                      padding:0 0 12px 0;
+                      font-family:Arial,Helvetica,sans-serif;
+                      font-size:10pt;
+                      line-height:16pt;
+                      color:#033655;
+                    "
+                  >
+                    You may cancel the reserved residence place without a
+                    cancellation fee up to
+                    <strong>62 days before the contract begins</strong>.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td
+                    valign="top"
+                    width="20"
+                    style="
+                      width:20px;
+                      padding:0 8px 0 0;
+                      font-family:Arial,Helvetica,sans-serif;
+                      font-size:10pt;
+                      line-height:16pt;
+                      font-weight:bold;
+                      color:#7dc097;
+                    "
+                  >
+                    •
+                  </td>
+
+                  <td
+                    valign="top"
+                    style="
+                      padding:0;
+                      font-family:Arial,Helvetica,sans-serif;
+                      font-size:10pt;
+                      line-height:16pt;
+                      color:#033655;
+                    "
+                  >
+                    If you withdraw between
+                    <strong>61 days and one day before the contract begins</strong>,
+                    Akademikerhilfe will retain one monthly residence fee as
+                    a cancellation charge. This amount will be deducted from
+                    your deposit, and any remaining balance will be refunded.
+                  </td>
+                </tr>
+              </table>
+
+              <p
+                style="
+                  margin:20px 0 0 0;
+                  padding:0;
+                  font-family:Arial,Helvetica,sans-serif;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                Please send your cancellation request by email to
+                <a
+                  href="mailto:studentservice@akademikerhilfe.at"
+                  style="
+                    color:#033655;
+                    font-weight:bold;
+                    text-decoration:underline;
+                  "
+                >
+                  studentservice@akademikerhilfe.at
+                </a>.
+                You are responsible for providing proof that the cancellation
+                request was received in time.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Reminder
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:0 44px 40px 44px;
+                background-color:#ffffff;
+              "
+            >
+              <table
+                role="presentation"
+                width="100%"
+                cellpadding="0"
+                cellspacing="0"
+                border="0"
+                style="
+                  width:100%;
+                  border:1px solid #d7e1e6;
+                  border-collapse:separate;
+                "
+              >
+                <tr>
+                  <td
+                    style="
+                      padding:24px 28px;
+                      background-color:#ffffff;
+                    "
+                  >
+                    <h2
+                      style="
+                        margin:0 0 14px 0;
+                        padding:0;
+                        font-family:Georgia,'Times New Roman',serif;
+                        font-size:17pt;
+                        line-height:22pt;
+                        font-weight:normal;
+                        color:#033655;
+                      "
+                    >
+                      Reminder
+                    </h2>
+
+                    <table
+                      role="presentation"
+                      width="100%"
+                      cellpadding="0"
+                      cellspacing="0"
+                      border="0"
+                    >
+                      <tr>
+                        <td
+                          valign="top"
+                          width="20"
+                          style="
+                            width:20px;
+                            padding:0 8px 12px 0;
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-size:10pt;
+                            line-height:16pt;
+                            font-weight:bold;
+                            color:#7dc097;
+                          "
+                        >
+                          •
+                        </td>
+
+                        <td
+                          valign="top"
+                          style="
+                            padding:0 0 12px 0;
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-size:10pt;
+                            line-height:16pt;
+                            color:#033655;
+                          "
+                        >
+                          Deregister your residence with the registration
+                          authority within three working days before your
+                          move-out date to avoid an administrative penalty.
+                          Please take your registration form with you.
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td
+                          valign="top"
+                          width="20"
+                          style="
+                            width:20px;
+                            padding:0 8px 0 0;
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-size:10pt;
+                            line-height:16pt;
+                            font-weight:bold;
+                            color:#7dc097;
+                          "
+                        >
+                          •
+                        </td>
+
+                        <td
+                          valign="top"
+                          style="
+                            padding:0;
+                            font-family:Arial,Helvetica,sans-serif;
+                            font-size:10pt;
+                            line-height:16pt;
+                            color:#033655;
+                          "
+                        >
+                          We recommend arranging mail forwarding and notifying
+                          all relevant organisations of your move. Mail will
+                          not be accepted, handed to another person, forwarded
+                          or stored by Akademikerhilfe.
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Closing
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:0 44px 40px 44px;
+                background-color:#ffffff;
+              "
+            >
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-family:Arial,Helvetica,sans-serif;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                Best regards
+              </p>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Personal Signature
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="left"
+              style="
+                padding:32px 44px;
+                background-color:#ffffff;
+                border-top:1px solid #d7e1e6;
+                font-family:Arial,Helvetica,sans-serif;
+                color:#033655;
+                text-align:left;
+              "
+            >
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-size:12pt;
+                  line-height:17pt;
+                  font-weight:bold;
+                  color:#033655;
+                "
+              >
+                {BENUTZER_VORNAME} {BENUTZER_NACHNAME}
+              </p>
+
+              <p
+                style="
+                  margin:0 0 20px 0;
+                  padding:0;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                Team Studentservice
+              </p>
+
+              <img
+                src="../../../assets/logos/AH_Logo_2026_WEB-RGB.png"
+                width="250"
+                alt="Akademikerhilfe"
+                style="
+                  display:block;
+                  width:250px;
+                  max-width:100%;
+                  height:auto;
+                  margin:0 0 24px 0;
+                  padding:0;
+                  border:0;
+                  outline:none;
+                  text-decoration:none;
+                "
+              >
+
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                Akademikerhilfe | Pfeilgasse 3a, A - 1080 Vienna
+              </p>
+
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                <a
+                  href="tel:+43140176"
+                  style="color:#033655; text-decoration:none;"
+                >
+                  +43 1 40176
+                </a>
+                &nbsp;|&nbsp;
+                <a
+                  href="mailto:studentservice@akademikerhilfe.at"
+                  style="color:#033655; text-decoration:underline;"
+                >
+                  studentservice@akademikerhilfe.at
+                </a>
+              </p>
+
+              <p
+                style="
+                  margin:0 0 12px 0;
+                  padding:0;
+                  font-size:10pt;
+                  line-height:16pt;
+                  color:#033655;
+                "
+              >
+                <a
+                  href="https://www.akademikerhilfe.at/"
+                  target="_blank"
+                  style="color:#033655; text-decoration:underline;"
+                >
+                  www.akademikerhilfe.at
+                </a>
+              </p>
+
+              <p
+                style="
+                  margin:0;
+                  padding:0;
+                  font-size:9pt;
+                  line-height:14pt;
+                  color:#506b7a;
+                "
+              >
+                ZVR: 431442523 | DVR: 0766399 | VAT ID: ATU38108506
+              </p>
+
+              <p
+                style="
+                  margin:16px 0 0 0;
+                  padding:0;
+                  font-size:9pt;
+                  line-height:14pt;
+                  color:#506b7a;
+                "
+              >
+                Authorised representative of the<br>
+                Gemeinnützige Bau- und Wohnungsgenossenschaft<br>
+                der Hochschüler in Leoben reg. Gen.m.b.H.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ==================================================
+               Technical Footer
+          =================================================== -->
+
+          <tr>
+            <td
+              class="mobile-padding"
+              align="center"
+              bgcolor="#eff3f5"
+              style="
+                padding:24px 44px;
+                background-color:#eff3f5;
+                border-top:1px solid #d7e1e6;
+                font-family:Arial,Helvetica,sans-serif;
+                font-size:9pt;
+                line-height:12pt;
+                color:#748894;
+                text-align:center;
+              "
+            >
+              Object Code: {OBJECT_CODE} | Person ID: {PERSON_ID}
+            </td>
+          </tr>
+
+        </table>
+
+        <!--[if mso]>
+            </td>
+          </tr>
+        </table>
+        <![endif]-->
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
