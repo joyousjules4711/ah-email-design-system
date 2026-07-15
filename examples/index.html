@@ -8,24 +8,33 @@
 
   <style>
     :root {
-      /* Brand tokens */
+      /* Brand */
       --brand-primary: #033655;
       --brand-accent: #7dc097;
 
-      /* Surface tokens */
+      /* Surfaces */
       --surface-primary: #ffffff;
       --surface-secondary: #eff3f5;
 
-      /* Text tokens */
+      /* Text */
       --text-primary: #033655;
-      --text-secondary: #526c7a;
+      --text-secondary: #506b7a;
       --text-inverse: #ffffff;
-      --text-muted: #7b8a94;
+      --text-muted: #748894;
 
-      /* Border tokens */
+      /* Borders */
       --border-light: #d7e1e6;
 
-      /* Spacing tokens */
+      /* Layout */
+      --sidebar-width: 250px;
+      --content-width: 940px;
+      --email-width: 660px;
+
+      /* Radius */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+
+      /* Spacing */
       --space-xs: 8px;
       --space-sm: 12px;
       --space-md: 16px;
@@ -33,11 +42,6 @@
       --space-xl: 32px;
       --space-2xl: 48px;
       --space-3xl: 64px;
-
-      /* Layout tokens */
-      --page-width: 1180px;
-      --email-width: 660px;
-      --radius: 8px;
     }
 
     * {
@@ -50,170 +54,58 @@
 
     body {
       margin: 0;
-      background: var(--surface-secondary);
+      background-color: var(--surface-secondary);
       color: var(--text-primary);
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       font-size: 10pt;
       line-height: 1.6;
     }
 
     a {
-      color: var(--brand-primary);
+      color: inherit;
     }
 
     code {
+      padding: 2px 5px;
+      background-color: var(--surface-secondary);
+      border-radius: var(--radius-sm);
       font-family: Consolas, "Courier New", monospace;
-    }
-
-    .page-header {
-      background: var(--brand-primary);
-      color: var(--text-inverse);
-    }
-
-    .page-header__inner {
-      width: min(calc(100% - 40px), var(--page-width));
-      margin: 0 auto;
-      padding: 64px 0;
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      color: var(--brand-accent);
-      font-size: 9pt;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .page-title {
-      max-width: 800px;
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(32px, 5vw, 58px);
-      line-height: 1.1;
-      font-weight: normal;
-    }
-
-    .page-subtitle {
-      max-width: 680px;
-      margin: 24px 0 0;
-      color: var(--surface-secondary);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .accent-line {
-      width: 150px;
-      height: 2px;
-      margin-top: 28px;
-      background: var(--brand-accent);
-    }
-
-    .project-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 999px;
-      color: var(--text-inverse);
       font-size: 9pt;
     }
 
-    .page-nav {
+    /* ======================================================
+       Layout
+    ====================================================== */
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: var(--surface-primary);
-      border-bottom: 1px solid var(--border-light);
+      height: 100vh;
+      padding: 32px 24px;
+      overflow-y: auto;
+      background-color: var(--brand-primary);
+      color: var(--text-inverse);
     }
 
-    .page-nav__inner {
-      display: flex;
-      gap: 24px;
-      width: min(calc(100% - 40px), var(--page-width));
+    .main-content {
+      width: 100%;
+      max-width: var(--content-width);
       margin: 0 auto;
-      padding: 14px 0;
-      overflow-x: auto;
+      padding: 48px 40px 80px;
     }
 
-    .page-nav a {
-      flex: 0 0 auto;
-      color: var(--text-primary);
-      font-size: 9pt;
-      font-weight: bold;
-      text-decoration: none;
-    }
+    /* ======================================================
+       Sidebar
+    ====================================================== */
 
-    main {
-      width: min(calc(100% - 40px), var(--page-width));
-      margin: 0 auto;
-      padding: 56px 0 80px;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-      margin-bottom: 64px;
-    }
-
-    .overview-card {
-      padding: 28px;
-      background: var(--surface-primary);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius);
-    }
-
-    .overview-card h2 {
-      margin: 0 0 16px;
-      font-size: 16pt;
-    }
-
-    .overview-card p {
-      margin: 0;
-      color: var(--text-secondary);
-    }
-
-    .status-list {
-      margin: 16px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .status-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .status-list li:last-child {
-      border-bottom: 0;
-    }
-
-    .status {
-      color: var(--brand-accent);
-      font-weight: bold;
-    }
-
-    .showcase-section {
-      margin-top: 72px;
-      scroll-margin-top: 80px;
-    }
-
-    .showcase-heading {
-      margin-bottom: 24px;
-    }
-
-    .showcase-heading__label {
-      margin: 0 0 6px;
+    .sidebar__eyebrow {
+      margin: 0 0 8px;
       color: var(--brand-accent);
       font-size: 9pt;
       font-weight: bold;
@@ -221,58 +113,197 @@
       text-transform: uppercase;
     }
 
-    .showcase-heading h2 {
+    .sidebar__title {
       margin: 0;
-      font-size: 22pt;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21pt;
+      line-height: 1.15;
+      font-weight: normal;
     }
 
-    .showcase-heading p {
+    .sidebar__subtitle {
+      margin: 14px 0 0;
+      color: var(--surface-secondary);
+      font-size: 9pt;
+      line-height: 1.6;
+    }
+
+    .sidebar__meta {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar__meta p {
+      margin: 0 0 6px;
+      font-size: 9pt;
+    }
+
+    .sidebar__status {
+      color: var(--brand-accent);
+      font-weight: bold;
+    }
+
+    .sidebar__nav {
+      margin-top: 36px;
+    }
+
+    .sidebar__nav-title {
+      margin: 0 0 12px;
+      color: var(--brand-accent);
+      font-size: 8pt;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .sidebar__nav-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .sidebar__nav-list li {
+      margin: 0;
+    }
+
+    .sidebar__nav-list a {
+      display: block;
+      padding: 8px 0;
+      color: var(--text-inverse);
+      font-size: 10pt;
+      text-decoration: none;
+    }
+
+    .sidebar__nav-list a:hover,
+    .sidebar__nav-list a:focus {
+      color: var(--brand-accent);
+    }
+
+    /* ======================================================
+       Page Header
+    ====================================================== */
+
+    .page-intro {
+      margin-bottom: 56px;
+    }
+
+    .page-intro__eyebrow {
+      margin: 0 0 8px;
+      color: var(--brand-accent);
+      font-size: 9pt;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .page-intro h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32pt;
+      line-height: 1.15;
+      font-weight: normal;
+      color: var(--brand-primary);
+    }
+
+    .page-intro p {
       max-width: 700px;
+      margin: 18px 0 0;
+      color: var(--text-secondary);
+      font-size: 11pt;
+      line-height: 1.7;
+    }
+
+    /* ======================================================
+       Component Documentation
+    ====================================================== */
+
+    .component {
+      margin-top: 72px;
+      scroll-margin-top: 32px;
+    }
+
+    .component:first-of-type {
+      margin-top: 0;
+    }
+
+    .component__header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .component__number {
+      margin: 0 0 4px;
+      color: var(--brand-accent);
+      font-size: 9pt;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .component__title {
+      margin: 0;
+      font-size: 20pt;
+      line-height: 1.25;
+      color: var(--brand-primary);
+    }
+
+    .component__description {
+      max-width: 680px;
       margin: 10px 0 0;
       color: var(--text-secondary);
     }
 
-    .preview-shell {
-      padding: 40px 20px;
-      background:
-        linear-gradient(
-          90deg,
-          transparent 24px,
-          rgba(3, 54, 85, 0.04) 25px,
-          transparent 26px
-        ),
-        var(--surface-secondary);
+    .component__file {
+      flex: 0 0 auto;
+      color: var(--text-muted);
+      font-size: 9pt;
+      text-align: right;
+    }
+
+    .component__preview {
+      padding: 32px 20px;
+      background-color: #e7ecef;
       border: 1px solid var(--border-light);
-      border-radius: var(--radius);
+      border-radius: var(--radius-md);
       overflow-x: auto;
     }
 
-    .email-preview {
-      width: 660px;
-      max-width: 100%;
-      margin: 0 auto;
-      background: var(--surface-primary);
-      border: 1px solid var(--border-light);
-    }
-
-    .email-padding {
-      padding: 48px 44px;
-    }
-
-    .component-note {
-      margin-top: 16px;
+    .component__notes {
+      margin-top: 12px;
       padding: 14px 16px;
-      background: var(--surface-primary);
+      background-color: var(--surface-primary);
       border-left: 4px solid var(--brand-accent);
       color: var(--text-secondary);
       font-size: 9pt;
     }
 
-    /* Hero preview */
+    /* ======================================================
+       Email Preview Frame
+    ====================================================== */
+
+    .email-preview {
+      width: var(--email-width);
+      max-width: 100%;
+      margin: 0 auto;
+      background-color: var(--surface-primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .email-content {
+      padding: 48px 44px;
+    }
+
+    /* ======================================================
+       AH Hero
+    ====================================================== */
 
     .ah-hero {
       padding: 48px 44px;
-      background: var(--brand-primary);
+      background-color: var(--brand-primary);
       text-align: left;
     }
 
@@ -295,6 +326,13 @@
       font-weight: normal;
     }
 
+    .ah-accent-line {
+      width: 150px;
+      height: 2px;
+      margin-top: 24px;
+      background-color: var(--brand-accent);
+    }
+
     .ah-hero__support {
       margin: 24px 0 0;
       color: var(--surface-secondary);
@@ -302,33 +340,41 @@
       line-height: 16pt;
     }
 
-    /* Section preview */
+    /* ======================================================
+       AH Section
+    ====================================================== */
 
-    .ah-section-heading {
+    .ah-section__title {
       margin: 0;
       font-size: 16pt;
       line-height: 20pt;
+      font-weight: bold;
+      color: var(--brand-primary);
     }
 
     .ah-body {
       margin: 16px 0 0;
+      color: var(--text-primary);
       font-size: 10pt;
       line-height: 16pt;
     }
 
-    /* Buttons */
+    /* ======================================================
+       AH Buttons
+    ====================================================== */
 
-    .button-row {
+    .button-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 18px;
       align-items: center;
     }
 
     .ah-button {
       display: inline-block;
       padding: 14px 30px;
-      border-radius: var(--radius);
+      border-radius: var(--radius-md);
+      font-family: Arial, sans-serif;
       font-size: 10pt;
       line-height: 14pt;
       font-weight: bold;
@@ -337,85 +383,120 @@
     }
 
     .ah-button--primary {
-      background: var(--brand-primary);
+      background-color: var(--brand-primary);
       border: 1px solid var(--brand-primary);
       color: var(--text-inverse);
     }
 
     .ah-button--secondary {
-      background: var(--surface-primary);
+      background-color: var(--surface-primary);
       border: 2px solid var(--brand-primary);
       color: var(--brand-primary);
     }
 
-    /* Cards */
+    /* ======================================================
+       AH Info Card
+    ====================================================== */
 
     .ah-info-card {
       padding: 24px 28px;
-      background: var(--surface-secondary);
+      background-color: var(--surface-secondary);
       border-left: 4px solid var(--brand-accent);
-      border-radius: var(--radius);
+      border-radius: var(--radius-md);
     }
 
-    .ah-feature-panel {
-      padding: 28px 30px;
-      background: var(--brand-primary);
-      border-radius: var(--radius);
-      color: var(--surface-secondary);
-    }
-
-    .ah-card-title {
+    .ah-card__title {
       margin: 0 0 12px;
       font-size: 11pt;
       line-height: 16pt;
       font-weight: bold;
+      color: var(--brand-primary);
     }
 
-    .ah-feature-panel .ah-card-title {
+    .ah-card__text {
+      margin: 0;
+      font-size: 10pt;
+      line-height: 16pt;
+      color: var(--text-primary);
+    }
+
+    .ah-card__text + .ah-card__text {
+      margin-top: 16px;
+    }
+
+    /* ======================================================
+       AH Feature Panel
+    ====================================================== */
+
+    .ah-feature-panel {
+      padding: 28px 30px;
+      background-color: var(--brand-primary);
+      border-radius: var(--radius-md);
+    }
+
+    .ah-feature-panel__title {
+      margin: 0 0 12px;
       color: var(--text-inverse);
       font-size: 12pt;
-    }
-
-    .ah-feature-panel p {
-      color: var(--surface-secondary);
-    }
-
-    .ah-feature-panel .highlight {
-      color: var(--brand-accent);
+      line-height: 17pt;
       font-weight: bold;
     }
 
-    /* Table */
+    .ah-feature-panel__text {
+      margin: 0;
+      color: var(--surface-secondary);
+      font-size: 10pt;
+      line-height: 16pt;
+    }
+
+    .ah-feature-panel__highlight {
+      margin: 16px 0 0;
+      color: var(--brand-accent);
+      font-size: 10pt;
+      line-height: 16pt;
+      font-weight: bold;
+    }
+
+    /* ======================================================
+       AH Data Table
+    ====================================================== */
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
 
     .ah-data-table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
       overflow: hidden;
-      background: var(--surface-primary);
+      background-color: var(--surface-primary);
       border: 1px solid var(--border-light);
-      border-radius: var(--radius);
+      border-radius: var(--radius-md);
     }
 
     .ah-data-table th,
     .ah-data-table td {
       padding: 14px 16px;
+      font-family: Arial, sans-serif;
       font-size: 10pt;
       line-height: 16pt;
     }
 
     .ah-data-table th {
-      background: var(--brand-primary);
+      background-color: var(--brand-primary);
       color: var(--text-inverse);
+      font-weight: bold;
       text-align: left;
     }
 
-    .ah-data-table td {
+    .ah-data-table tbody td {
+      color: var(--text-primary);
       border-bottom: 1px solid var(--border-light);
     }
 
     .ah-data-table tbody tr:nth-child(even) td {
-      background: var(--surface-secondary);
+      background-color: var(--surface-secondary);
     }
 
     .ah-data-table .amount {
@@ -424,12 +505,15 @@
     }
 
     .ah-data-table tfoot td {
-      background: var(--brand-accent);
-      border-bottom: 0;
+      background-color: var(--brand-accent);
+      color: var(--brand-primary);
       font-weight: bold;
+      border-bottom: 0;
     }
 
-    /* Signature */
+    /* ======================================================
+       AH Signature
+    ====================================================== */
 
     .ah-signature {
       color: var(--text-primary);
@@ -445,23 +529,40 @@
       margin-bottom: 20px !important;
       font-size: 12pt;
       font-weight: bold;
+      color: var(--brand-primary);
     }
 
     .ah-signature a {
-      color: var(--text-primary);
+      color: var(--brand-primary);
       text-decoration: none;
     }
 
     .ah-signature__legal {
+      color: var(--text-secondary);
       font-size: 9pt;
       line-height: 14pt;
-      color: var(--text-secondary);
     }
 
-    /* Technical footer */
+    .ah-signature__logo-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 60px;
+      margin-bottom: 24px;
+      background-color: var(--surface-secondary);
+      border: 1px dashed var(--border-light);
+      color: var(--text-muted);
+      font-size: 9pt;
+    }
 
-    .ah-technical-footer {
+    /* ======================================================
+       AH Technical Footer
+    ====================================================== */
+
+    .ah-footer {
       padding: 24px 44px;
+      background-color: var(--surface-secondary);
       border-top: 1px solid var(--border-light);
       color: var(--text-muted);
       font-size: 9pt;
@@ -469,34 +570,49 @@
       text-align: center;
     }
 
-    .page-footer {
-      padding: 32px 20px;
-      background: var(--brand-primary);
-      color: var(--surface-secondary);
-      text-align: center;
-      font-size: 9pt;
-    }
+    /* ======================================================
+       Mobile
+    ====================================================== */
 
-    @media (max-width: 720px) {
-      .intro-grid {
+    @media (max-width: 860px) {
+      .app-shell {
         grid-template-columns: 1fr;
       }
 
-      .page-header__inner {
-        padding: 44px 0;
+      .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
       }
 
-      main {
-        padding-top: 40px;
+      .sidebar__nav-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
       }
 
-      .preview-shell {
-        padding: 20px 8px;
+      .main-content {
+        padding: 40px 20px 64px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .component__header {
+        display: block;
+      }
+
+      .component__file {
+        margin-top: 12px;
+        text-align: left;
+      }
+
+      .component__preview {
+        padding: 18px 8px;
       }
 
       .ah-hero,
-      .email-padding,
-      .ah-technical-footer {
+      .email-content,
+      .ah-footer {
         padding-left: 24px;
         padding-right: 24px;
       }
@@ -506,7 +622,7 @@
         line-height: 29pt;
       }
 
-      .button-row {
+      .button-group {
         align-items: stretch;
         flex-direction: column;
       }
@@ -514,366 +630,438 @@
       .ah-button {
         width: 100%;
       }
-
-      .table-scroll {
-        overflow-x: auto;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <header class="page-header">
-    <div class="page-header__inner">
-      <p class="eyebrow">Akademikerhilfe</p>
+  <div class="app-shell">
 
-      <h1 class="page-title">
+    <!-- ====================================================
+         Sidebar
+    ===================================================== -->
+
+    <aside class="sidebar">
+      <p class="sidebar__eyebrow">Akademikerhilfe</p>
+
+      <p class="sidebar__title">
         Email Design System
-      </h1>
-
-      <p class="page-subtitle">
-        Designed for Every Student Journey.
-        A living reference for reusable, accessible and
-        Outlook-compatible transactional email components.
       </p>
 
-      <div class="accent-line"></div>
+      <p class="sidebar__subtitle">
+        Designed for Every Student Journey.
+      </p>
 
-      <div class="project-meta">
-        <span class="badge">Version 0.2.0</span>
-        <span class="badge">Status: In development</span>
-        <span class="badge">Transactional email</span>
+      <div class="sidebar__meta">
+        <p>Version: 0.2.0</p>
+        <p class="sidebar__status">In development</p>
       </div>
-    </div>
-  </header>
 
-  <nav class="page-nav" aria-label="Component navigation">
-    <div class="page-nav__inner">
-      <a href="#hero">Hero</a>
-      <a href="#section">Section</a>
-      <a href="#buttons">Buttons</a>
-      <a href="#info-card">Info Card</a>
-      <a href="#feature-panel">Feature Panel</a>
-      <a href="#data-table">Data Table</a>
-      <a href="#signature">Signature</a>
-      <a href="#footer">Footer</a>
-    </div>
-  </nav>
+      <nav class="sidebar__nav" aria-label="Component navigation">
+        <p class="sidebar__nav-title">Components</p>
 
-  <main>
+        <ul class="sidebar__nav-list">
+          <li><a href="#hero">Hero</a></li>
+          <li><a href="#section">Section</a></li>
+          <li><a href="#buttons">Buttons</a></li>
+          <li><a href="#info-card">Info Card</a></li>
+          <li><a href="#feature-panel">Feature Panel</a></li>
+          <li><a href="#data-table">Data Table</a></li>
+          <li><a href="#signature">Signature</a></li>
+          <li><a href="#footer">Technical Footer</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-    <section class="intro-grid">
-      <article class="overview-card">
-        <h2>About this showcase</h2>
+    <!-- ====================================================
+         Main Content
+    ===================================================== -->
+
+    <main class="main-content">
+
+      <header class="page-intro">
+        <p class="page-intro__eyebrow">Component Library</p>
+
+        <h1>Transactional email components</h1>
 
         <p>
-          This page presents the current component library using live HTML.
-          Production email components remain stored separately in
+          This page displays the current Akademikerhilfe email components as
+          live HTML previews. Production-ready source files are stored in
           <code>src/components/</code>.
         </p>
-      </article>
+      </header>
 
-      <article class="overview-card">
-        <h2>Component status</h2>
+      <!-- ==================================================
+           Hero
+      =================================================== -->
 
-        <ul class="status-list">
-          <li><span>Hero</span><span class="status">Available</span></li>
-          <li><span>Section</span><span class="status">Available</span></li>
-          <li><span>Button</span><span class="status">Available</span></li>
-          <li><span>Info Card</span><span class="status">Available</span></li>
-          <li><span>Feature Panel</span><span class="status">Available</span></li>
-          <li><span>Data Table</span><span class="status">Available</span></li>
-          <li><span>Signature</span><span class="status">Draft</span></li>
-          <li><span>Technical Footer</span><span class="status">Draft</span></li>
-        </ul>
-      </article>
-    </section>
-
-    <!-- =====================================================
-         Hero
-    ====================================================== -->
-
-    <section id="hero" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 01</p>
-        <h2>AH Hero</h2>
-        <p>
-          Introduces the primary purpose of an email and establishes
-          immediate Akademikerhilfe brand recognition.
-        </p>
-      </div>
-
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="ah-hero">
-            <p class="ah-hero__department">Department label</p>
-
-            <h3 class="ah-hero__title">Email title</h3>
-
-            <div class="accent-line"></div>
-
-            <p class="ah-hero__support">
-              Optional supporting information appears here.
+      <section id="hero" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 01</p>
+            <h2 class="component__title">AH Hero</h2>
+            <p class="component__description">
+              Introduces the main purpose of an email and establishes the
+              visual identity of the message.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- =====================================================
-         Section
-    ====================================================== -->
-
-    <section id="section" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 02</p>
-        <h2>AH Section</h2>
-        <p>
-          Groups related content into a clearly structured topic.
-        </p>
-      </div>
-
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="email-padding">
-            <h3 class="ah-section-heading">Section heading</h3>
-
-            <p class="ah-body">
-              A short introduction explains the purpose of this section.
-            </p>
-
-            <p class="ah-body">
-              Additional content appears here. Each section should remain
-              focused on one topic.
-            </p>
+          <div class="component__file">
+            <code>src/components/hero.html</code>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- =====================================================
-         Buttons
-    ====================================================== -->
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="ah-hero">
+              <p class="ah-hero__department">
+                Department label
+              </p>
 
-    <section id="buttons" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 03</p>
-        <h2>AH Buttons</h2>
-        <p>
-          Primary and secondary actions used throughout transactional emails.
-        </p>
-      </div>
+              <p class="ah-hero__title">
+                Email title
+              </p>
 
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="email-padding">
-            <div class="button-row">
-              <a class="ah-button ah-button--primary" href="#">
-                Primary action
-              </a>
+              <div class="ah-accent-line"></div>
 
-              <a class="ah-button ah-button--secondary" href="#">
-                Secondary action
-              </a>
+              <p class="ah-hero__support">
+                Optional supporting information appears here.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- =====================================================
-         Info Card
-    ====================================================== -->
+        <div class="component__notes">
+          The logo is intentionally not included in the Hero. It will be used
+          inside the Corporate Signature.
+        </div>
+      </section>
 
-    <section id="info-card" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 04</p>
-        <h2>AH Info Card</h2>
-        <p>
-          Used for calm, supporting information that should remain visible
-          without competing with the primary message.
-        </p>
-      </div>
+      <!-- ==================================================
+           Section
+      =================================================== -->
 
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="email-padding">
-            <div class="ah-info-card">
-              <p class="ah-card-title">Information heading</p>
+      <section id="section" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 02</p>
+            <h2 class="component__title">AH Section</h2>
+            <p class="component__description">
+              Groups related information into one clearly structured topic.
+            </p>
+          </div>
+
+          <div class="component__file">
+            <code>src/components/section.html</code>
+          </div>
+        </div>
+
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="email-content">
+              <p class="ah-section__title">
+                Section heading
+              </p>
 
               <p class="ah-body">
-                Supporting information appears here. Explain why this
-                information is relevant to the recipient.
+                A short introduction explains the purpose of this section.
               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         Feature Panel
-    ====================================================== -->
-
-    <section id="feature-panel" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 05</p>
-        <h2>AH Feature Panel</h2>
-        <p>
-          A high-emphasis component for important details and critical
-          next steps.
-        </p>
-      </div>
-
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="email-padding">
-            <div class="ah-feature-panel">
-              <p class="ah-card-title">Feature panel heading</p>
 
               <p class="ah-body">
-                Important information appears here. Keep the content concise.
-              </p>
-
-              <p class="ah-body highlight">
-                Highlighted information appears here.
+                Additional content appears here. Keep each section focused
+                on one topic.
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- =====================================================
-         Data Table
-    ====================================================== -->
+      <!-- ==================================================
+           Buttons
+      =================================================== -->
 
-    <section id="data-table" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 06</p>
-        <h2>AH Data Table</h2>
-        <p>
-          Presents structured information such as payments, debts,
-          contract details or account information.
-        </p>
-      </div>
+      <section id="buttons" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 03</p>
+            <h2 class="component__title">AH Buttons</h2>
+            <p class="component__description">
+              Primary and secondary calls to action for transactional emails.
+            </p>
+          </div>
 
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="email-padding">
-            <div class="table-scroll">
-              <table class="ah-data-table">
-                <thead>
-                  <tr>
-                    <th scope="col">Column heading</th>
-                    <th scope="col">Column heading</th>
-                    <th scope="col" class="amount">Amount</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Example value</td>
-                    <td>Example value</td>
-                    <td class="amount">EUR 100,00</td>
-                  </tr>
-
-                  <tr>
-                    <td>Example value</td>
-                    <td>Example value</td>
-                    <td class="amount">EUR 100,00</td>
-                  </tr>
-                </tbody>
-
-                <tfoot>
-                  <tr>
-                    <td colspan="2">Total</td>
-                    <td class="amount">EUR 200,00</td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
+          <div class="component__file">
+            <code>src/components/button.html</code>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- =====================================================
-         Signature
-    ====================================================== -->
-
-    <section id="signature" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 07</p>
-        <h2>AH Corporate Signature</h2>
-        <p>
-          Identifies the responsible department and contains the official
-          organisation and contact details.
-        </p>
-      </div>
-
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="email-padding">
-            <div class="ah-signature">
-              <p class="ah-signature__department">Department name</p>
-
-              <p>
-                Akademikerhilfe | Pfeilgasse 3a, A-1080 Wien<br>
-                <a href="tel:+43140176">+43 1 40176</a> |
-                <a href="mailto:department@akademikerhilfe.at">
-                  department@akademikerhilfe.at
-                </a><br>
-                <a href="https://www.akademikerhilfe.at">
-                  www.akademikerhilfe.at
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="email-content">
+              <div class="button-group">
+                <a
+                  class="ah-button ah-button--primary"
+                  href="#buttons"
+                >
+                  Primary action
                 </a>
-              </p>
 
-              <p class="ah-signature__legal">
-                ZVR: 431442523 | ATU38108506
-              </p>
-
-              <p class="ah-signature__legal">
-                Bevollmächtigte für die<br>
-                Gemeinnützige Bau- und Wohnungsgenossenschaft<br>
-                der Hochschüler in Leoben reg. Gen.m.b.H.
-              </p>
+                <a
+                  class="ah-button ah-button--secondary"
+                  href="#buttons"
+                >
+                  Secondary action
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- =====================================================
-         Footer
-    ====================================================== -->
+      <!-- ==================================================
+           Info Card
+      =================================================== -->
 
-    <section id="footer" class="showcase-section">
-      <div class="showcase-heading">
-        <p class="showcase-heading__label">Component 08</p>
-        <h2>AH Technical Footer</h2>
-        <p>
-          Provides unobtrusive internal reference information at the end
-          of every email.
-        </p>
-      </div>
+      <section id="info-card" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 04</p>
+            <h2 class="component__title">AH Info Card</h2>
+            <p class="component__description">
+              Provides calm supporting information without competing with
+              the primary message.
+            </p>
+          </div>
 
-      <div class="preview-shell">
-        <div class="email-preview">
-          <div class="ah-technical-footer">
-            Object Code: {OBJECT_CODE} | Person ID: {PERSON_ID}
+          <div class="component__file">
+            <code>src/components/info-card.html</code>
           </div>
         </div>
-      </div>
-    </section>
 
-  </main>
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="email-content">
+              <div class="ah-info-card">
+                <p class="ah-card__title">
+                  Information heading
+                </p>
 
-  <footer class="page-footer">
-    Akademikerhilfe Email Design System —
-    Designed for Every Student Journey.
-  </footer>
+                <p class="ah-card__text">
+                  Supporting information appears here. Keep the message
+                  concise and relevant.
+                </p>
+
+                <p class="ah-card__text">
+                  Additional context may appear here when required.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+           Feature Panel
+      =================================================== -->
+
+      <section id="feature-panel" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 05</p>
+            <h2 class="component__title">AH Feature Panel</h2>
+            <p class="component__description">
+              Highlights important information or critical next steps.
+            </p>
+          </div>
+
+          <div class="component__file">
+            <code>src/components/feature-panel.html</code>
+          </div>
+        </div>
+
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="email-content">
+              <div class="ah-feature-panel">
+                <p class="ah-feature-panel__title">
+                  Feature panel heading
+                </p>
+
+                <p class="ah-feature-panel__text">
+                  Important information appears here. Keep the content concise
+                  and make the next step immediately understandable.
+                </p>
+
+                <p class="ah-feature-panel__highlight">
+                  Highlighted information appears here.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+           Data Table
+      =================================================== -->
+
+      <section id="data-table" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 06</p>
+            <h2 class="component__title">AH Data Table</h2>
+            <p class="component__description">
+              Presents payments, debts, contract details or other structured
+              data.
+            </p>
+          </div>
+
+          <div class="component__file">
+            <code>src/components/data-table.html</code>
+          </div>
+        </div>
+
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="email-content">
+              <div class="table-wrapper">
+                <table class="ah-data-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Column heading</th>
+                      <th scope="col">Column heading</th>
+                      <th scope="col" class="amount">Amount</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    <tr>
+                      <td>Example value</td>
+                      <td>Example value</td>
+                      <td class="amount">EUR 100,00</td>
+                    </tr>
+
+                    <tr>
+                      <td>Example value</td>
+                      <td>Example value</td>
+                      <td class="amount">EUR 100,00</td>
+                    </tr>
+                  </tbody>
+
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">Total</td>
+                      <td class="amount">EUR 200,00</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+           Signature
+      =================================================== -->
+
+      <section id="signature" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 07</p>
+            <h2 class="component__title">AH Corporate Signature</h2>
+            <p class="component__description">
+              Identifies the responsible team and contains the organisation,
+              contact and legal information.
+            </p>
+          </div>
+
+          <div class="component__file">
+            <code>src/components/signature.html</code>
+          </div>
+        </div>
+
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="email-content">
+              <div class="ah-signature">
+
+                <!-- Logo will be inserted later -->
+                <div class="ah-signature__logo-placeholder">
+                  Akademikerhilfe logo
+                </div>
+
+                <p class="ah-signature__department">
+                  Department name
+                </p>
+
+                <p>
+                  Akademikerhilfe | Pfeilgasse 3a, A-1080 Wien<br>
+
+                  <a href="tel:+43140176">
+                    +43 1 40176
+                  </a>
+
+                  |
+
+                  <a href="mailto:department@akademikerhilfe.at">
+                    department@akademikerhilfe.at
+                  </a><br>
+
+                  <a href="https://www.akademikerhilfe.at">
+                    www.akademikerhilfe.at
+                  </a>
+                </p>
+
+                <p class="ah-signature__legal">
+                  ZVR: 431442523 | ATU38108506
+                </p>
+
+                <p class="ah-signature__legal">
+                  Bevollmächtigte für die<br>
+                  Gemeinnützige Bau- und Wohnungsgenossenschaft<br>
+                  der Hochschüler in Leoben reg. Gen.m.b.H.
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================
+           Technical Footer
+      =================================================== -->
+
+      <section id="footer" class="component">
+        <div class="component__header">
+          <div>
+            <p class="component__number">Component 08</p>
+            <h2 class="component__title">AH Technical Footer</h2>
+            <p class="component__description">
+              Displays internal reference information after the Corporate
+              Signature.
+            </p>
+          </div>
+
+          <div class="component__file">
+            <code>src/components/footer.html</code>
+          </div>
+        </div>
+
+        <div class="component__preview">
+          <div class="email-preview">
+            <div class="ah-footer">
+              Object Code: {OBJECT_CODE} | Person ID: {PERSON_ID}
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
 
 </body>
 </html>

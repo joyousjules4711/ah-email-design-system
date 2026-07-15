@@ -49,21 +49,23 @@ The email structure should support this sequence.
 
 The default Akademikerhilfe email follows this structure:
 
-```text
-Email Canvas
-│
-├── Preheader
-├── Header
-├── Hero
-├── Metadata
-├── Greeting
-├── Introduction
-├── Primary Content
-├── Primary Action
-├── Supporting Information
-├── Closing
-├── Signature
-└── Footer
+Hero
+↓
+Content
+↓
+Signature with logo
+↓
+Technical footer
+
+
+hero.html
+section.html
+button.html
+info-card.html
+feature-panel.html
+data-table.html
+signature.html
+footer.html
 ```
 
 Not every template requires every section.
